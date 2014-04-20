@@ -20,7 +20,7 @@ function start() {
 function updateGen(value, start) {
 	/*if(GEN || limit) //prevent changing after has started or invalid agument
 		return; */
-	var _limits = [ [1, 715], 
+	var _limits = [ [1, 718], 
 					[1, 151], [152, 251], [252, 386], 
 					[387, 493], [494, 649], [650, 718]];
 	for(i = 0; i < _limits.length; i++) {
