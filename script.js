@@ -77,7 +77,7 @@ function reroll(fav) {
 		var x = document.getElementsByClassName('fav');
 		console.log(pkmLike);
 		console.log(x);
-		x[pkmLike.length - 1].src = 'images/' + pkmLike[pkmLike.length -1] + '.png';
+		x[pkmLike.length - 1].src = 'images/' + pkmElim[pkmElim.length -1] + '.png';
 	}
 
 	//update choice image src
