@@ -32,6 +32,11 @@
 				top:-200px;
 				left:40px;
 			}
+			button#skip {
+				position:relative;
+				top:-40px;
+				left:-100px;
+			}
 			.disabled {
 				color:#C0C0C0;
 			}
@@ -57,6 +62,7 @@
 					<img src="images/egg.png" onclick="start()">
 					<img src="images/egg.png" onclick="start()">
 					<span>---</span> / <span>718</span> eliminated
+					<button type="button" id="skip" disabled="disabled" onclick="reroll(3)">Skip</button>
 				</div>
 				<div>
 					<img src="images/fill.png" class="fav">
@@ -91,6 +97,7 @@
 				</br>
 				Only "new" pokemon:
 				<input type="checkbox" id="newPkm" selected="false" onchange="updateGen(document.getElementsByTagName('select')[0].value)"></input>
+
 			</div>
 		</div>
 		<script>
