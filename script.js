@@ -1,4 +1,3 @@
-var GEN;
 var limit = {
 	min: 1, max: 718
 };
@@ -19,21 +18,11 @@ function start() {
 }
 
 function updateGen(value, start) {
-	/*if(GEN || limit) //prevent changing after has started or invalid agument
-		return; */
 	var _limits = [ [1, 718], 
 					[1, 151], [152, 251], [252, 386], 
 					[387, 493], [494, 649], [650, 718]];
 	for(i = 0; i < _limits.length; i++) {
 		if(i == value) {
-			GEN = value;
-			/*if(document.getElementById('newPkm').checked) {
-				limit.min = _limits[i][0];
-				limit.max = _limits[i][1];
-			} else {
-				limit.min = 1;
-				limit.max = _limits[i][1];
-			} */
 			limit.min = document.getElementById('newPkm').checked ? _limits[i][0] : 1;
 			limit.max = _limits[i][1];
 			document.getElementsByTagName('span')[1].innerHTML = ''+ (limit.max - limit.min + 1);
@@ -71,7 +60,7 @@ function reroll(fav) {
 			pkmElim.push(_tmp[2]);
 			pkmLike.push(_tmp[3]);
 			break;
-		case 3:
+		case 3: //skipped was press. don't eliminate.
 			pkmLike.push(_tmp[2]);
 			pkmLike.push(_tmp[3]);
 	}
@@ -79,8 +68,6 @@ function reroll(fav) {
 	//update top 9 image src
 	if(pkmLike.length < 10 && fav != 3) {
 		var x = document.getElementsByClassName('fav');
-		console.log(pkmLike);
-		console.log(x);
 		x[pkmLike.length - 1].src = 'images/' + pkmElim[pkmElim.length -1] + '.png';
 	}
 
