@@ -9,6 +9,7 @@ function start() {
 	_tmp.setAttribute('disabled', 'disabled');
 	document.getElementById('newPkm').setAttribute('disabled', 'disabled');
 	document.getElementById('settings').className = 'disabled';
+	document.getElementById('skip').removeAttribute('disabled');
 
 	//make sure the gen used will be what is selected
 	pkmElim = new Array();
@@ -70,10 +71,13 @@ function reroll(fav) {
 			pkmElim.push(_tmp[2]);
 			pkmLike.push(_tmp[3]);
 			break;
+		case 3:
+			pkmLike.push(_tmp[2]);
+			pkmLike.push(_tmp[3]);
 	}
 	
 	//update top 9 image src
-	if(pkmLike.length < 10) {
+	if(pkmLike.length < 10 && fav != 3) {
 		var x = document.getElementsByClassName('fav');
 		console.log(pkmLike);
 		console.log(x);
