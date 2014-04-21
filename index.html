@@ -59,8 +59,8 @@
 			<p>Pick your favorite of the two pokemon until only 1 remains!</p>
 			<div id="grid">
 				<div id="choice">
-					<img src="images/egg.png" onclick="start()">
-					<img src="images/egg.png" onclick="start()">
+					<img src="images/egg.png" onclick="startG()">
+					<img src="images/egg.png" onclick="startG()">
 					<span>---</span> / <span>718</span> eliminated
 					<button type="button" id="skip" disabled="disabled" onclick="reroll(3)">Skip</button>
 				</div>
@@ -94,7 +94,7 @@
 					<option value="5">V. (BW)</option>
 					<option value="6">VI. (XY)</option>
 				</select>
-				</br>
+				<br/>
 				Only "new" pokemon:
 				<input type="checkbox" id="newPkm" selected="false" onchange="updateGen(document.getElementsByTagName('select')[0].value)"></input>
 
@@ -107,9 +107,9 @@
 		<div id="footer">
 			<div>
 				Based on this <a href="http://www.contrib.andrew.cmu.edu/~msandbot/pokemon/">webpage</a> created by a student at Carnegie Mellon. 
-				</br>
+				<br/>
 				Pokemon sprites are from Smogon. <a href="http://www.smogon.com/download/sprites/bw/">(Gen 1 - 5)</a> <a href="http://www.smogon.com/media/sprites/xy/front/">(Gen 6)</a>
-				</br>
+				<br/>
 				The source can be viewed <a href="https://github.com/fio4ri/FavoritePokemon">here</a>.
 			</div>
 		</div>

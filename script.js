@@ -3,7 +3,7 @@ var limit = {
 };
 var pkmElim = new Array();
 var pkmLike = new Array();
-function start() {
+function startG() {
 	var _tmp = document.getElementsByTagName('select')[0];
 	_tmp.setAttribute('disabled', 'disabled');
 	document.getElementById('newPkm').setAttribute('disabled', 'disabled');
