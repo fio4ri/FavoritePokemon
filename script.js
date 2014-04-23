@@ -39,7 +39,7 @@ function updateGen(value, start) {
 }
 
 function reroll(fav) {
-	console.log(pkmElim.length + '\t' + pkmLike.length);
+	//console.log(pkmElim.length + '\t' + pkmLike.length);
 	if(pkmElim.length >= limit.max - limit.min) {
 		return;
 	}
@@ -64,13 +64,14 @@ function reroll(fav) {
 			break;
 		case 3: //skipped was press. don't eliminate.
 			pkmLike.push(_tmp[2]);
-			pkmSeen.push(_tmp[3]);
+			pkmLike.push(_tmp[3]);
 	}
 
 	//update top 9 image src
-	if(pkmLike.length < 10 && pkmSeen.length < 10 && fav != 3 ) {
+	console.log(limit.max - limit.min - pkmElim.length);
+	if(limit.max - limit.min - pkmElim.length <= 8 && fav != 3 ) {
 		var x = document.getElementsByClassName('fav');
-		x[pkmSeen.length - 1].src = 'images/' + pkmElim[pkmElim.length -1] + '.png';
+		x[limit.max - limit.min - pkmElim.length].src = 'images/' + pkmElim[pkmElim.length -1] + '.png';
 	}
 
 	//update choice image src
@@ -81,13 +82,13 @@ function reroll(fav) {
 		_tmp[1].src = 'images/' + _newPkm() + '.png';
 
 	//update eliminated text
-	if(pkmElim.length == limit.max - 1)
-		pkmElim.push(0);
 	document.getElementsByTagName('span')[0].innerHTML = ''+ pkmElim.length;
 } 
 
 function _newPkm() {
-	if(pkmLike.length <= 0)
-		return pkmSeen.splice(Math.floor(Math.random() * pkmSeen.length),1);
+	if(pkmLike.length <= 0) {
+		pkmLike = pkmLike.concat(pkmSeen);
+		pkmSeen.length = 0;
+	}
 	return pkmLike.splice(Math.floor(Math.random() * pkmLike.length),1);
 }
