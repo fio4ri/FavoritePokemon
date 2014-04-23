@@ -3,6 +3,8 @@ var limit = {
 };
 var pkmElim = new Array();
 var pkmLike = new Array();
+var pkmSeen = new Array();
+
 function startG() {
 	var _tmp = document.getElementsByTagName('select')[0];
 	_tmp.setAttribute('disabled', 'disabled');
@@ -54,32 +56,38 @@ function reroll(fav) {
 			break;
 		case 1:
 			pkmElim.push(_tmp[3]);
-			pkmLike.push(_tmp[2]);
+			pkmSeen.push(_tmp[2]);
 			break;
 		case 2:
 			pkmElim.push(_tmp[2]);
-			pkmLike.push(_tmp[3]);
+			pkmSeen.push(_tmp[3]);
 			break;
 		case 3: //skipped was press. don't eliminate.
 			pkmLike.push(_tmp[2]);
-			pkmLike.push(_tmp[3]);
+			pkmSeen.push(_tmp[3]);
 	}
-	
+
 	//update top 9 image src
-	if(pkmLike.length < 10 && fav != 3) {
+	if(pkmLike.length < 10 && pkmSeen.length < 10 && fav != 3 ) {
 		var x = document.getElementsByClassName('fav');
-		x[pkmLike.length - 1].src = 'images/' + pkmElim[pkmElim.length -1] + '.png';
+		x[pkmSeen.length - 1].src = 'images/' + pkmElim[pkmElim.length -1] + '.png';
 	}
 
 	//update choice image src
-	_tmp[0].src = 'images/' + pkmLike.splice(Math.floor(Math.random() * pkmLike.length),1) + '.png';
-	if(pkmLike.length == 0)
+	_tmp[0].src = 'images/' + _newPkm() + '.png';
+	if(pkmLike.length == 0 && pkmSeen.length== 0)
 		_tmp[1].src = _tmp[0].src;
 	else 
-		_tmp[1].src = 'images/' + pkmLike.splice(Math.floor(Math.random() * pkmLike.length),1) + '.png';
+		_tmp[1].src = 'images/' + _newPkm() + '.png';
 
 	//update eliminated text
 	if(pkmElim.length == limit.max - 1)
 		pkmElim.push(0);
 	document.getElementsByTagName('span')[0].innerHTML = ''+ pkmElim.length;
 } 
+
+function _newPkm() {
+	if(pkmLike.length <= 0)
+		return pkmSeen.splice(Math.floor(Math.random() * pkmSeen.length),1);
+	return pkmLike.splice(Math.floor(Math.random() * pkmLike.length),1);
+}
