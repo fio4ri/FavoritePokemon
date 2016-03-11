@@ -1,18 +1,10 @@
+var maxPokemon = 718;
+var percentageNode = document.getElementById('percentage').querySelector('span');
+var fillNode = document.getElementById('percentage-fill');
 
 initilizeGame = function() {
 	//preload pokemon images
-	
-	var percentageNode = document.getElementById('percentage').querySelector('span');
-	var fillNode = document.getElementById('percentage-fill');
-	for(var i = 1; i <= 718; i++) {
-		var tmpImage = new Image();
-		tmpImage.src = 'images/' + i + '.png';
-		
-		//update progress bar
-		percentageNode.innerText = i/720;
-		fillNode.style.width = ''+i/720*100+'%';
-		console.log(i/720 * 100);
-	}
+	loadImage(1);
 	
 	//set event handelers
 	for(var node in document.getElementsByClassName('egg')) {
@@ -20,6 +12,21 @@ initilizeGame = function() {
 	}
 	
 }
+
+//recursive method to make sure each image is loaded
+function loadImage(index) {
+	if(index > maxPokemon)
+		return;
+	
+	var tmpImage = new Image();
+	tmpImage.onload = function() {
+		//update progress bar
+		percentageNode.innerText = index/maxPokemon*100;
+		fillNode.style.width = ''+index/maxPokemon*100+'%';
+		loadImage(index + 1);
+	}
+	tmpImage.src = 'images/' + index + '.png';
+} 
 
 function pickPokemon() {
 	
