@@ -1,6 +1,4 @@
 var maxPokemon = 718;
-var percentageNode = document.getElementById('percentage').querySelector('span');
-var fillNode = document.getElementById('percentage-fill');
 
 initilizeGame = function() {
 	//preload pokemon images
@@ -21,6 +19,10 @@ function loadImage(index) {
 	var tmpImage = new Image();
 	tmpImage.onload = function() {
 		//update progress bar
+		
+		var percentageNode = document.getElementById('percentage').querySelector('span');
+		var fillNode = document.getElementById('percentage-fill');
+		
 		percentageNode.innerText = index/maxPokemon*100;
 		fillNode.style.width = ''+index/maxPokemon*100+'%';
 		loadImage(index + 1);
