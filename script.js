@@ -110,8 +110,10 @@ function getPokemonList() {
 
 initilizeGame = function() {
 	//preload pokemon images
-	loadImage(1);
-	
+	//loadImage(1);
+	document.getElementById('loader-screen').style.display = 'none';
+	document.getElementById('game').style.display = 'block';
+	document.getElementById('settings').style.display = 'block';
 	//set event handelers
 	var nodes = document.getElementsByClassName('egg');
 	for(i = 0; i < nodes.length; i++) {
