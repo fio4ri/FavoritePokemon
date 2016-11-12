@@ -1,0 +1,80 @@
+body {
+	margin:0px auto;
+}
+#game-area {
+	position:relative;
+	top:50px;
+	height:460px;
+	width:650px;
+	margin: 0 auto;
+	padding:5px;
+	background-color:white;
+	display:flex;
+	flex-direction: row;
+}
+#game-area #game, #game-area #settings, #game-area #grid, #game-area #button-reset {
+	display:none;
+}
+#loader-screen {
+	display:flex;
+	align-items: center;
+	width:100%;
+}
+#loader-screen #container {
+	width: 90%;
+	margin: 0px auto;
+	height: 20px;
+	text-align: center;
+}
+#loader-screen #container #percentage {
+	color:dimgrey;
+	padding-top:3px;
+}
+#loader-screen #container #percentage-fill {
+	position:relative;
+	top:-20px;
+	border-radius: 8px;
+	height: 20px;
+	background-color:rgba(50,50,50,.3);
+	width:0%
+}
+#game img {
+	height:96px;
+	width:96px;
+}
+#grid {
+	position:relative;
+	width:auto;
+	padding-left:40px;
+	background-color:white;
+}
+#grid, #settings {
+	display:inline-block;
+}
+#settings {
+	margin-top:20px;
+}
+#settings input {
+	margin:7px;
+}
+button#skip {
+	position:relative;
+	top:-40px;
+	left:-100px;
+}
+.disabled {
+	color:#C0C0C0;
+}
+#footer {
+	position:absolute;
+	bottom:0px;
+	margin:0px;
+	width:100%;
+}
+#footer div {
+	text-align:center;
+	font-size:.7em;
+}
+.hidden {
+	display:none;
+}
