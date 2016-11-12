@@ -1,70 +1,83 @@
 <!doctype html>
 <html>
 	<head>
-		<title>lol</title>
+		<title>Favorite Pokemon - Pick your own!</title>
 		<link href="css/style.css" type="text/css" rel="stylesheet">
+		<link href="css/meyer.css" type="text/css" rel="stylesheet">
 		<meta charset="utf-8">
-		<script src="script.js"></script>
 	</head>
 	<body style="background-color:#F0F0F0">
-		<div id="game">
-			<p>Choose your generation. Then click on an egg to begin.</p>
-			<p>Pick your favorite of the two pokemon until only 1 remains!</p>
-			<div id="grid">
+		<div id="game-area">
+			<div id="loader-screen">
+				<div id="container">
+					<div id="percentage"><span>0</span>%</div>
+					<div id="percentage-fill"></div>
+				</div>
+			</div>
+			<div id="game">
+				<p>Choose your settings. Then click on an egg to begin.</p>
+				<p>Pick your favorite of the two pokemon until only 1 remains!</p>
+				
 				<div id="choice">
-					<img src="images/egg.png" onclick="startG()">
-					<img src="images/egg.png" onclick="startG()">
-					<span>---</span> / <span>718</span> eliminated
-					<button type="button" id="skip" disabled="disabled" onclick="reroll(3)">Skip</button>
+					<span id="pkm1">
+						<img class="egg" src="images/egg.png">
+					</span>
+					<span id="pkm2">
+						<img class="egg" src="images/egg.png">
+					</span>
+					<span id="remaining">---</span> / <span id="total">---</span> eliminated
+					<button type="button" id="button-skip" disabled>Skip</button>
+					<button type="button" id="button-undo" disabled>Undo</button>
 				</div>
-				<div>
-					<img src="images/fill.png" class="fav">
-					<img src="images/fill.png" class="fav">
-					<img src="images/fill.png" class="fav">
-					2-4
+				
+				<div id="settings">
+					Generations:<br/>
+					<label><input type="checkbox" value="0" id="gen-all" checked>All</label> <br/>
+					<label><input type="checkbox" value="1" class="gen-checkbox" disabled>I. (RBY)</label>
+					<label><input type="checkbox" value="2" class="gen-checkbox" disabled>II. (GSC)</label>
+					<label><input type="checkbox" value="3" class="gen-checkbox" disabled>III. (RSE)</label> <br/>
+					<label><input type="checkbox" value="4" class="gen-checkbox" disabled>IV. (DPP)</label>
+					<label><input type="checkbox" value="5" class="gen-checkbox" disabled>V. (BW)</label>
+					<label><input type="checkbox" value="6" class="gen-checkbox" disabled>VI. (XY)</label> <br/>
 				</div>
-				<div>
-					<img src="images/fill.png" class="fav">
-					<img src="images/fill.png" class="fav">
-					<img src="images/fill.png" class="fav">
-					5-7
+				
+				<div id="grid">
+					<div>
+						<img src="images/fill.png" class="fav">
+						<img src="images/fill.png" class="fav">
+						<img src="images/fill.png" class="fav">
+						2-4
+					</div>
+					<div>
+						<img src="images/fill.png" class="fav">
+						<img src="images/fill.png" class="fav">
+						<img src="images/fill.png" class="fav">
+						5-7
+					</div>
+					<div>
+						<img src="images/fill.png" class="fav">
+						<img src="images/fill.png" class="fav">
+						<img src="images/fill.png" class="fav">
+						8-10
+					</div>
 				</div>
-				<div>
-					<img src="images/fill.png" class="fav">
-					<img src="images/fill.png" class="fav">
-					<img src="images/fill.png" class="fav">
-					8-10
-				</div>
+				
+				<button type="button" id="button-reset">Reset Game</button>
 			</div>
-			<div id="settings">
-				Generation:
-				<select onchange="updateGen(this.value)" enabled>
-					<option value="0">All</option>
-					<option value="1">I. (RBY)</option>
-					<option value="2">II. (GSC)</option>
-					<option value="3">III. (RSE)</option>
-					<option value="4">IV. (DPP)</option>
-					<option value="5">V. (BW)</option>
-					<option value="6">VI. (XY)</option>
-				</select>
-				<br/>
-				Only "new" pokemon:
-				<input type="checkbox" id="newPkm" selected="false" onchange="updateGen(document.getElementsByTagName('select')[0].value)"></input>
-
-			</div>
+			<ul id="pkmnList" style="list-style: none; margin-left: 20px; margin-top:20px;">
+			</ul>
 		</div>
-		<script>
-			document.getElementById('newPkm').removeAttribute('disabled');
-			document.getElementsByTagName('select')[0].removeAttribute('disabled');
-		</script>
+		
 		<div id="footer">
 			<div>
-				Based on this <a href="http://www.contrib.andrew.cmu.edu/~msandbot/pokemon/">webpage</a> created by a student at Carnegie Mellon. 
+				Based on this <a href="http://www.contrib.andrew.cmu.edu/~msandbot/pokemon/" target="_blank">webpage</a> created by a student at Carnegie Mellon. 
 				<br/>
-				Pokemon sprites are from Smogon. <a href="http://www.smogon.com/download/sprites/bw/">(Gen 1 - 5)</a>and their <a href="http://www.smogon.com/forums/threads/xy-sprite-project-read-1st-post-pixel-perfect.3486712/"> XY Sprite Project(Gen 6)</a>
+				Pokemon sprites are from Smogon. <a href="http://www.smogon.com/download/sprites/bw/" target="_blank">(Gen 1 - 5)</a>and their <a href="http://www.smogon.com/forums/threads/xy-sprite-project-read-1st-post-pixel-perfect.3486712/" target="_blank"> XY Sprite Project(Gen 6)</a>
 				<br/>
-				The source can be viewed <a href="https://github.com/fio4ri/FavoritePokemon">here</a>.
+				The source can be viewed <a href="https://github.com/fio4ri/FavoritePokemon" target="_blank">here</a>.
 			</div>
 		</div>
+		
+		<script src="script.js"></script>
 	</body>
 </html>

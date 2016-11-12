@@ -1,17 +1,46 @@
 body {
 	margin:0px auto;
 }
-p {
-	margin: 0px;
-}
-#game {
+#game-area {
 	position:relative;
 	top:50px;
-	height:auto;
+	height:460px;
 	width:650px;
 	margin: 0 auto;
 	padding:5px;
 	background-color:white;
+	display:flex;
+	flex-direction: row;
+}
+#game-area #game, #game-area #settings, #game-area #grid, #game-area #button-reset {
+	display:none;
+}
+#loader-screen {
+	display:flex;
+	align-items: center;
+	width:100%;
+}
+#loader-screen #container {
+	width: 90%;
+	margin: 0px auto;
+	height: 20px;
+	text-align: center;
+}
+#loader-screen #container #percentage {
+	color:dimgrey;
+	padding-top:3px;
+}
+#loader-screen #container #percentage-fill {
+	position:relative;
+	top:-20px;
+	border-radius: 8px;
+	height: 20px;
+	background-color:rgba(50,50,50,.3);
+	width:0%
+}
+#game img {
+	height:96px;
+	width:96px;
 }
 #grid {
 	position:relative;
@@ -23,10 +52,10 @@ p {
 	display:inline-block;
 }
 #settings {
-	position:relative;
-	padding:5px;
-	top:-200px;
-	left:40px;
+	margin-top:20px;
+}
+#settings input {
+	margin:7px;
 }
 button#skip {
 	position:relative;
@@ -45,4 +74,7 @@ button#skip {
 #footer div {
 	text-align:center;
 	font-size:.7em;
+}
+.hidden {
+	display:none;
 }
