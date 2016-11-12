@@ -110,7 +110,7 @@ function getPokemonList() {
 
 initilizeGame = function() {
 	//preload pokemon images
-	//loadImage(1);
+	loadImage(1);
 	
 	//set event handelers
 	var nodes = document.getElementsByClassName('egg');
