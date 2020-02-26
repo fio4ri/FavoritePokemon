@@ -264,8 +264,19 @@ resetGame = function() {
 	document.querySelector('#pkm2 img').src = 'images/egg.png';
 	document.querySelector('#pkm1 img').onclick = startGame;
 	document.querySelector('#pkm2 img').onclick = startGame;
+	document.querySelector('#pkm1 img').className = 'egg';
+	document.querySelector('#pkm2 img').className = 'egg';
 	document.querySelector('#pkm1 img').removeAttribute('dexnumber');
 	document.querySelector('#pkm2 img').removeAttribute('dexnumber');
+	topGridImgArray[0].src = 'images/fill.png';
+	topGridImgArray[1].src = 'images/fill.png';
+	topGridImgArray[2].src = 'images/fill.png';
+	topGridImgArray[3].src = 'images/fill.png';
+	topGridImgArray[4].src = 'images/fill.png';
+	topGridImgArray[5].src = 'images/fill.png';
+	topGridImgArray[6].src = 'images/fill.png';
+	topGridImgArray[7].src = 'images/fill.png';
+	topGridImgArray[8].src = 'images/fill.png';
 	pokemonList = [];
 	undoArray = [];
 }
