@@ -109,7 +109,7 @@ function loadImage(index) {
 		loadImage(index + 1);
 	};
 	if(document.getElementById('sprites').checked && pkmId <= 721)
-			_tmpImage.src = 'images/sprites/' + index + '.png';
+			_tmpImage.src = 'images/' + index + '.png';
 		else
 			_tmpImage.src = imagePath + index + '.png';
 }
@@ -335,7 +335,7 @@ undo = function() {
    
    //pokemonList, etc. should be ready now, so let's update the pokemon
    if(document.getElementById('sprites').checked && imagePath+_history.saved.value <= 721)
-			document.querySelector('#' + _history.saved.sourceId + ' img').src = 'images/sprites/'+_history.saved.value + '.png';
+			document.querySelector('#' + _history.saved.sourceId + ' img').src = 'images/'+_history.saved.value + '.png';
 	 else
 			document.querySelector('#' + _history.saved.sourceId + ' img').src = imagePath+_history.saved.value + '.png';
 			
@@ -343,7 +343,7 @@ undo = function() {
    document.querySelector('#' + _history.saved.sourceId + ' img').title = _history.saved.value;
    
       if(document.getElementById('sprites').checked && imagePath+_history.deleted.value <= 721)
-			document.querySelector('#' + _history.deleted.sourceId + ' img').src = 'images/sprites/'+_history.deleted.value + '.png';
+			document.querySelector('#' + _history.deleted.sourceId + ' img').src = 'images/'+_history.deleted.value + '.png';
 	 else
 			document.querySelector('#' + _history.deleted.sourceId + ' img').src = imagePath+_history.deleted.value + '.png';
 
@@ -476,7 +476,7 @@ generatePokemon = function(callLocation, updateUndo) {
 		
 		//update pkm1 and pkm2
 		if(document.getElementById('sprites').checked && pkmId <= 721)
-			callLocation.src = 'images/sprites/' + pkmId + '.png';
+			callLocation.src = 'images/' + pkmId + '.png';
 		else
 			callLocation.src = imagePath + pkmId + '.png';
 			
@@ -487,7 +487,7 @@ generatePokemon = function(callLocation, updateUndo) {
 		pkmId = Array.removeRandom(pokemonList);
 		
 		if(document.getElementById('sprites').checked && pkmId <= 721)
-			uncalledLocation.src = 'images/sprites/' + pkmId + '.png';
+			uncalledLocation.src = 'images/' + pkmId + '.png';
 		else
 			uncalledLocation.src = imagePath + pkmId + '.png';
 			
