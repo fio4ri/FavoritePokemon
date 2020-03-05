@@ -4,7 +4,7 @@ body {
 #game-area {
 	position:relative;
 	top:50px;
-	height:460px;
+	height:650px;
 	width:650px;
 	margin: 0 auto;
 	padding:5px;
@@ -39,8 +39,9 @@ body {
 	width:0%
 }
 #game img {
-	height:96px;
-	width:96px;
+	height:125px;
+	width:125px;
+	padding:10px;
 }
 #grid {
 	position:relative;
