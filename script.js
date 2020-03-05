@@ -176,7 +176,7 @@ function getPokemonList() {
 	}
 		
 	else{//include forms by region
-		if(Document.getElementById('forms-all').checked){//add all forms by region
+		if(document.getElementById('forms-all').checked){//add all forms by region
 			if(list.includes(722)) list = list.concat(list_data['alolan'].contents);
 			if(list.includes(810)) list = list.concat(list_data['galarian'].contents);
 			if(list.includes(650)) list = list.concat(list_data['mega'].contents);
